@@ -20,6 +20,7 @@
 		97B10D0622D30A0C00EBB774 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B10D0522D30A0C00EBB774 /* Measure.swift */; };
 		97B10D2A22D443D400EBB774 /* MovingAverageFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B10D2822D443D400EBB774 /* MovingAverageFilter.swift */; };
 		97B10D2B22D443D400EBB774 /* HeatmapPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B10D2922D443D400EBB774 /* HeatmapPostProcessor.swift */; };
+		97B10D2D22D4512F00EBB774 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97B10D2C22D4512F00EBB774 /* testViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		97B10D0522D30A0C00EBB774 /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		97B10D2822D443D400EBB774 /* MovingAverageFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovingAverageFilter.swift; path = "../../../../../Downloads/PoseEstimation-CoreML-master/PoseEstimation-CoreML/Common/MovingAverageFilter.swift"; sourceTree = "<group>"; };
 		97B10D2922D443D400EBB774 /* HeatmapPostProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeatmapPostProcessor.swift; path = "../../../../../Downloads/PoseEstimation-CoreML-master/PoseEstimation-CoreML/Common/HeatmapPostProcessor.swift"; sourceTree = "<group>"; };
+		97B10D2C22D4512F00EBB774 /* testViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				97B10D0122D2FE5800EBB774 /* DrawingJoint.swift */,
 				97B10D0522D30A0C00EBB774 /* Measure.swift */,
 				97B10CCF22D2F09C00EBB774 /* Main.storyboard */,
+				97B10D2C22D4512F00EBB774 /* testViewController.swift */,
 				97B10CD522D2F09C00EBB774 /* Assets.xcassets */,
 				97B10CD722D2F09C00EBB774 /* LaunchScreen.storyboard */,
 				97B10CDA22D2F09C00EBB774 /* Info.plist */,
@@ -280,6 +283,7 @@
 				97B10CD422D2F09C00EBB774 /* ProjectMC2.xcdatamodeld in Sources */,
 				97B10D2A22D443D400EBB774 /* MovingAverageFilter.swift in Sources */,
 				97B10CCC22D2F09C00EBB774 /* AppDelegate.swift in Sources */,
+				97B10D2D22D4512F00EBB774 /* testViewController.swift in Sources */,
 				97B10D0222D2FE5800EBB774 /* DrawingJoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     public typealias DetectObjectsCompletion = ([PredictedPoint?]?, Error?) -> Void
     @IBOutlet weak var jointCamera: UIView!
     
+    @IBOutlet weak var jointView: DrawingJoint!
+    
     let measure = Measure()
     
     var videoCapture = VideoCapture()
@@ -54,7 +56,23 @@ class ViewController: UIViewController {
     func setUpModel(){
         if let visionModel = try? VNCoreMLModel(for: EstimateModel().model){
             self.visionModel = visionModel
-            request = VNCoreMLRequest(model: visionModel, completionHandler: visionReques)
+            request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
+            request?.imageCropAndScaleOption = .scaleFill
+        } else{
+            fatalError()
+        }
+    }
+    
+    //setup video
+    func setUpCamera(){
+        videoCapture = VideoCapture()
+        videoCapture.delegate = self
+        videoCapture.fps = 30
+        videoCapture.setUp(sessionPreset: .vga640x480) { (success) in
+            if success {
+                //add preview view on the layer
+                if let previewLayer = self.videoCapture
+            }
         }
     }
 
@@ -68,5 +86,40 @@ extension ViewController {
         try? handler.perform([request])
     }
     
-    func visionRequestDidComplete(request: VNRequest,)
+    func visionRequestDidComplete(request: VNRequest, error: Error?){
+        self.measure.tag(with: "endInference")
+        if let observations = request.results as? [VNCoreMLFeatureValueObservation], let heatmaps = observations.first?.featureValue.multiArrayValue {
+            
+            //post-processing
+            //convert heatmap to point array
+            var predictedPoints = postProcessor.convertToPredictedPoints(from: heatmaps)
+            
+            //moving average filter
+            if predictedPoints.count != mvfilters.count{
+                mvfilters = predictedPoints.map{ _ in MovingAverageFilter(limit: 3)}
+            }
+            for (predictedPoint, filter) in zip(predictedPoints, mvfilters){
+                filter.add(element: predictedPoint)
+            }
+            predictedPoints = mvfilters.map {$0.averagedValue()}
+            
+            //display the result
+            DispatchQueue.main.sync {
+                //draw line
+                self.jointView.bodyPoints = predictedPoints
+                
+                //show key points description
+                self.showKeyPointsDesc(with: predictedPoints)
+                
+                //end measure
+                self.measure.recordStop()
+            }
+        }else{
+            self.measure.recordStop()
+        }
+    }
+    
+    func showKeyPointsDesc(with n_kpoints: [PredictedPoint?]){
+        self.tableData = n_kpoints
+    }
 }
