@@ -10,7 +10,6 @@ import UIKit
 
 class testViewController: UIViewController {
 
-    @IBOutlet weak var tes: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 

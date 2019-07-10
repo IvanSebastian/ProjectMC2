@@ -48,7 +48,22 @@
                     <view key="view" contentMode="scaleToFill" id="Qge-7g-euI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c16-cy-LMl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="901"/>
+                            </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Zd1-dI-Ygi">
+                                <rect key="frame" x="188" y="776" width="39" height="37"/>
+                            </pageControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="c16-cy-LMl" firstAttribute="centerX" secondItem="Q0s-VF-adN" secondAttribute="centerX" id="16R-Jp-12W"/>
+                            <constraint firstItem="Zd1-dI-Ygi" firstAttribute="centerX" secondItem="c16-cy-LMl" secondAttribute="centerX" id="3lh-hT-bdo"/>
+                            <constraint firstItem="c16-cy-LMl" firstAttribute="width" secondItem="Qge-7g-euI" secondAttribute="width" id="GxI-il-GN6"/>
+                            <constraint firstItem="c16-cy-LMl" firstAttribute="height" secondItem="Qge-7g-euI" secondAttribute="height" id="JpB-O8-wwP"/>
+                            <constraint firstItem="c16-cy-LMl" firstAttribute="centerY" secondItem="Q0s-VF-adN" secondAttribute="centerY" id="UDY-eY-Gum"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Q0s-VF-adN"/>
                     </view>
                 </viewController>
